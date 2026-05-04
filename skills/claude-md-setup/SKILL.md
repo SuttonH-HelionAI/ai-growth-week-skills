@@ -64,6 +64,14 @@ Ask one question at a time. Show one example with each question. Wait for the an
 
 Use the user's words. Do not paraphrase or "improve" them. The goal is to capture how they actually talk about their brand.
 
+### Section 0, Brand Name
+
+Before the 5 sections, capture the brand name. One question, no example needed.
+
+> "What's your brand name? One word or short phrase."
+
+Hold this name. It goes in the `# [Brand Name]` header at the top of CLAUDE.md when you write the file in Step 5. Replace the literal placeholder with the actual name. Never write `[Brand Name]` to the file.
+
 ### Section 1, Identity
 
 > "Who are you, what do you do, what do you stand for? 3-5 lines is enough.
