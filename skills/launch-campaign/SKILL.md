@@ -66,24 +66,99 @@ If `## Identity`, `## Tone`, `## Audience`, or `## Lineup` is missing, stop and 
 
 ---
 
-## Step 2: Get the campaign brief
+## Step 2: Onboarding interview
 
-Ask the user for a one-paragraph brief. Wait for the answer before going to Step 3.
+Walk the user through six rounds of questions. **Ask one round at a time. Wait for the answer before asking the next.** Do not batch the questions. Do not start writing files until Round 6 is confirmed.
 
-Prompt them with this template:
+Open the interview with this exact line so the user knows what to expect:
+
+> "Quick onboarding before we fire. Six short questions, one at a time. About two minutes. Then six helpers spawn and build the whole campaign."
+
+---
+
+### Round 1: What are we launching?
+
+*Why this matters: vague offers produce vague campaigns. The sharper the answer here, the sharper every artifact.*
+
+Ask:
+- "What are you launching or promoting? Name the product, offer, or promo. If there's a price, give it. If there's a special bundle, list it."
+
+If the answer is one word ("the new pre-workout"), ask one follow-up: "Got it. What's the price, and is there a bundle or subscription option?"
+
+---
+
+### Round 2: What's the goal?
+
+*Why this matters: a launch and a re-engagement need different tone, different CTAs, different timing. The skill writes differently for each.*
+
+Ask:
+- "What's the goal of this campaign? Pick one: first purchase from cold, first purchase from warm list, repeat buyer, win-back, list-build, education only."
+
+If the user says "all of them," push back: "Pick the primary one. The campaign can do other things, but it has to lead with one."
+
+---
+
+### Round 3: Who's it for?
+
+*Why this matters: helpers write differently for "all customers" vs a specific cut. A narrower audience makes the copy sharper.*
+
+Ask:
+- "Who's the audience cut for this specific campaign? Is it your whole list, or a slice? If a slice, name it (e.g. lapsed buyers, top spenders, men 30-45 who lift heavy)."
+
+Default to the brand's full audience from CLAUDE.md if the user has no narrower cut in mind.
+
+---
+
+### Round 4: What's the hero claim?
+
+*Why this matters: every helper anchors on this one line. If it's strong, the campaign is strong.*
+
+Ask:
+- "Give me the hero claim. One sentence the whole campaign hangs on. The line you'd put on a billboard. If you don't have one yet, give me three rough takes and I'll help you pick."
+
+If the user gives multiple options, pick one with them in a quick exchange. Lock one before moving on.
+
+---
+
+### Round 5: Timing and deadline
+
+*Why this matters: a 48-hour LTO needs different email cadence than an evergreen launch. Helpers calibrate timing from this answer.*
+
+Ask:
+- "What's the timing? When does it go live, and is there a window? Examples: '7-day pre-launch then a 48-hour LTO', '3-email launch sequence over 7 days', or 'evergreen, no deadline'."
+
+---
+
+### Round 6: Confirmation
+
+*Why this matters: misunderstandings caught here save you from rebuilding artifacts later.*
+
+Summarize back to the user using this exact format:
 
 ```
-Give me the campaign brief in one paragraph. Cover:
-  - The offer (what we're launching or promoting)
-  - The goal (first purchase, repeat buyer, win-back, education, etc.)
-  - The audience cut (segment of your full audience, if narrower)
-  - The hero claim (the one sentence the campaign hangs on)
-  - Deadline or window (if any)
+## Campaign brief: [campaign-slug]
+
+**Offer:** [from Round 1]
+**Goal:** [from Round 2]
+**Audience cut:** [from Round 3]
+**Hero claim:** [from Round 4]
+**Timing:** [from Round 5]
 ```
 
-If the user gives a thin brief (less than three of those covered), ask once for the missing pieces. Do not push for more than one round of follow-up. The sub-agents can work from a thin brief.
+Then ask:
+- "Does this capture it? Anything to add or change before I dispatch the helpers?"
 
-Save the brief verbatim to `projects/$ARGUMENTS/brief.md`. Every sub-agent reads from this file.
+If the user requests a change, update the relevant field and re-show the summary. Loop until the user confirms.
+
+Once confirmed, save the brief to `projects/$ARGUMENTS/brief.md` using the exact same format above (with a `# [Campaign-slug] — Campaign Brief` header at the top).
+
+Every sub-agent reads from this file. Do not skip the file write. Do not proceed to Step 3 until the file exists.
+
+---
+
+### Skipping rounds
+
+If the user gives a complete brief upfront (covers all five fields in their first message), skip rounds that are already answered. Confirm with Round 6 anyway. Never skip the confirmation step.
 
 ---
 
