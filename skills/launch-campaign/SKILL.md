@@ -1,7 +1,7 @@
 ---
 name: launch-campaign
 description: Builds a complete campaign from one prompt. Fires six sub-agents in parallel. Each calls a kit skill. Output is one folder with research, strategy, emails, landing page, ads, and social posts. Auto-triggers on phrases like "launch a campaign", "build a campaign", "campaign in a box", "fire the kit", "run the whole flow". User-invocable as `/launch-campaign`. Takes a campaign slug as argument.
-argument-hint: [campaign-slug] (e.g. forge-pre-workout)
+argument-hint: "[campaign-slug, e.g. summer-launch or holiday-promo]"
 disable-model-invocation: true
 ---
 
@@ -48,7 +48,7 @@ The dispatch is fire-and-forget. The skill reads the brief, fires all six sub-ag
 
 ## Step 1: Parse argument and load brand voice
 
-If `$ARGUMENTS` is empty, ask the user: "What's the campaign slug? (lowercase, hyphens, like `forge-pre-workout`)"
+If `$ARGUMENTS` is empty, ask the user: "What's the campaign slug? (lowercase, hyphens, like `summer-launch` or `holiday-promo`)"
 
 Use the slug to define the output folder: `projects/$ARGUMENTS/`.
 
@@ -260,7 +260,7 @@ Steps:
 1. Read projects/$ARGUMENTS/brief.md.
 2. Read CLAUDE.md sections ## Identity, ## Tone, ## Audience, ## Lineup.
 3. If a /content-batch skill is installed, follow its pattern. Otherwise, write five posts, one file each:
-   - social/01-instagram.md (carousel, 5-7 slides, Sutton's IG aesthetic)
+   - social/01-instagram.md (carousel, 5-7 slides, dense and editorial, no emojis)
    - social/02-x.md (single tweet, under 280 chars)
    - social/03-linkedin.md (medium-length post, professional tone, hook + insight + CTA)
    - social/04-threads.md (3-post thread, conversational)
