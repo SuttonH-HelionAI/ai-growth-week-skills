@@ -24,7 +24,7 @@ echo "  Installing Day 5 wiki tools..."
 echo ""
 
 for skill in "${SKILLS[@]}"; do
-  url="https://raw.githubusercontent.com/${REPO}/${BRANCH}/skills/${skill}/SKILL.md"
+  url="https://github.com/${REPO}/raw/${BRANCH}/skills/${skill}/SKILL.md"
   dest=".claude/skills/${skill}/SKILL.md"
   mkdir -p ".claude/skills/${skill}"
   if curl -fsSL "${url}" -o "${dest}"; then

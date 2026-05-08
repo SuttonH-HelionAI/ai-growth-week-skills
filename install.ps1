@@ -23,7 +23,7 @@ Write-Host '  Installing Day 5 wiki tools...'
 Write-Host ''
 
 foreach ($skill in $skills) {
-    $url  = "https://raw.githubusercontent.com/$repo/$branch/skills/$skill/SKILL.md"
+    $url  = "https://github.com/$repo/raw/$branch/skills/$skill/SKILL.md"
     $dir  = ".claude\skills\$skill"
     $dest = "$dir\SKILL.md"
     New-Item -ItemType Directory -Force -Path $dir | Out-Null
