@@ -6,7 +6,7 @@ $ErrorActionPreference = 'Stop'
 
 $repo   = 'SuttonH-HelionAI/ai-growth-week-skills'
 $branch = 'day-five'
-$skills = @('start-wiki', 'wiki-lint')
+$skills = @('start-wiki', 'seed-wiki', 'wiki-lint')
 
 if (-not (Test-Path 'CLAUDE.md')) {
     Write-Host ''
@@ -38,8 +38,10 @@ foreach ($skill in $skills) {
 }
 
 Write-Host ''
-Write-Host '  Done. Two skills installed: /start-wiki and /wiki-lint'
+Write-Host '  Done. Three skills installed: /start-wiki, /seed-wiki, /wiki-lint'
 Write-Host ''
-Write-Host '  Next step:'
-Write-Host '    Type /start-wiki in your Claude window.'
+Write-Host '  Next steps:'
+Write-Host '    1. Type /start-wiki to scaffold the wiki and ingest your first source.'
+Write-Host '    2. Type /seed-wiki to auto-populate from everything already in your kit.'
+Write-Host '    3. Set a Friday calendar reminder to run /wiki-lint every week.'
 Write-Host ''

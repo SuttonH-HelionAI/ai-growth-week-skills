@@ -7,7 +7,7 @@ set -e
 
 REPO="SuttonH-HelionAI/ai-growth-week-skills"
 BRANCH="day-five"
-SKILLS=("start-wiki" "wiki-lint")
+SKILLS=("start-wiki" "seed-wiki" "wiki-lint")
 
 if [ ! -f "CLAUDE.md" ]; then
   echo ""
@@ -36,8 +36,10 @@ for skill in "${SKILLS[@]}"; do
 done
 
 echo ""
-echo "  Done. Two skills installed: /start-wiki and /wiki-lint"
+echo "  Done. Three skills installed: /start-wiki, /seed-wiki, /wiki-lint"
 echo ""
-echo "  Next step:"
-echo "    Type /start-wiki in your Claude window."
+echo "  Next steps:"
+echo "    1. Type /start-wiki to scaffold the wiki and ingest your first source."
+echo "    2. Type /seed-wiki to auto-populate from everything already in your kit."
+echo "    3. Set a Friday calendar reminder to run /wiki-lint every week."
 echo ""
