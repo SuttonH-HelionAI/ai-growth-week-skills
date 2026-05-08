@@ -47,7 +47,13 @@ Once `[BRAND COMPLETE]` is on the last line of your `CLAUDE.md`, every other ski
 
 **Day 2:** `/pdp-generator`, `/email-sequence`, `/landing-page` (added morning of Day 2)
 
-**Day 3-5:** added each morning. To pull the new skills, just `git pull` or re-download the ZIP.
+**Day 3-4:** added each morning. To pull the new skills, just `git pull` or re-download the ZIP.
+
+**Day 5:**
+- `/start-wiki`, builds a wiki memory inside your kit. Two questions, then it does the rest. Your AI stops forgetting.
+- `/wiki-lint`, weekly health check for the wiki. Run it every Friday for 10 minutes.
+
+After `/start-wiki` runs, you do not need to type slash commands for daily wiki use. Just talk to Claude. *"Remember this." "What do customers complain about?" "Save that answer."* The skill wires the wiki into your `CLAUDE.md` so future sessions handle ingest, query, and save conversationally.
 
 ---
 
