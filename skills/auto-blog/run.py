@@ -16,6 +16,11 @@ from pathlib import Path
 CONFIG_PATH = Path.home() / ".helion-automations" / "config.json"
 LOG_PATH = Path.home() / ".auto-blog.log"
 
+# Ensure subprocess can find `claude` when launched from cron (cron's PATH is minimal).
+for _p in ("/opt/homebrew/bin", "/usr/local/bin", str(Path.home() / ".local/bin")):
+    if _p not in os.environ.get("PATH", ""):
+        os.environ["PATH"] = _p + ":" + os.environ.get("PATH", "")
+
 
 def log(msg):
     line = f"[{datetime.now().isoformat(timespec='seconds')}] {msg}"
